@@ -17,7 +17,7 @@ public class AnimateDoor : MonoBehaviour
         "IsLoading"
     };
 
-    private bool isDebug = false;
+    public bool isDebug = false;
     private bool _atliftRamp;
     private bool _isLiftTimerStarted = false;
     private int counter;
