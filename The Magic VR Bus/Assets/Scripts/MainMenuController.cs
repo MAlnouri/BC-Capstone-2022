@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +15,15 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        LoadLevel("Level 1 Scene");
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
     }
 }
