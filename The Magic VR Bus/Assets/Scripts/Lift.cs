@@ -25,7 +25,10 @@ public class Lift : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
+        if (other.tag==("Player")){
         Debug.Log("Outside Lift Trigger");
+        
+        }
 
     }
         
