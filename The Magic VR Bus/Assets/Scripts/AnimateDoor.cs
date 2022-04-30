@@ -59,9 +59,7 @@ public class AnimateDoor : MonoBehaviour
         if (isDebug) Debug.Log ($"ontrigger Exit object tag ---{other.tag}");
          if (other.tag==("Player") && _atliftRamp){
             //_liftAdmin.SetBool ("isLiftClosing",true);
-            _liftAdmin.SetBool ("isOpening",false);
-            _liftAdmin.SetBool ("IsLoading",false);
-            StartCoroutine (CloseDoor ());
+            if (isOpening==false) StartCoroutine (CloseDoor ());
             Debug.Log("OnTrigger Door CLosing");
             _atliftRamp = false;
          }
@@ -88,40 +86,47 @@ public class AnimateDoor : MonoBehaviour
       Validation ("Start");  
     }
 
-    IEnumerator CloseDoor (){
-        if (isDebug) Debug.Log($"CloseDoor - Started Coroutine at timestamp : {Time.time}.");     
+    IEnumerator CloseDoor()
+    {
+        if (isDebug) Debug.Log($"CloseDoor - Started Coroutine at timestamp : {Time.time}.");
 
         //yield on a new YieldInstruction that waits for 3 seconds.
+        _liftAdmin.SetBool("isOpening", false);
+        _liftAdmin.SetBool("IsLoading", false);
         yield return new WaitForSeconds(3);
 
-         _liftAdmin.SetBool ("isLiftClosing",true);
-        yield return new WaitForSeconds(3);      
-        _doorAdmin.SetBool ("isOpening",false);
-        _liftAdmin.SetBool ("isLiftClosing",false);
+        _liftAdmin.SetBool("isLiftClosing", true);
+        yield return new WaitForSeconds(3);
+        _doorAdmin.SetBool("isOpening", false);
+        _liftAdmin.SetBool("isLiftClosing", false);
         //After we have waited 5 seconds print the time again.
-        if (_liftAdmin.GetBool("isLiftClosing") == true) {
-                isOpen="true";
-            } 
-        else 
-            {
-                isOpen="false";
-                //_liftAdmin.SetBool ("isLiftClosing",true);
-            } 
-       if (isDebug) Debug.Log($"CloseDoor - Finished Coroutine at timestamp : {Time.time} and ramp closing is {isOpen}" );             
-        
+        if (_liftAdmin.GetBool("isLiftClosing") == true)
+        {
+            isOpen = "true";
+        }
+        else
+        {
+            isOpen = "false";
+            //_liftAdmin.SetBool ("isLiftClosing",true);
+        }
+        if (isDebug) Debug.Log($"CloseDoor - Finished Coroutine at timestamp : {Time.time} and ramp closing is {isOpen}");
+
     }
     IEnumerator OpenLift (){
         if (isDebug) Debug.Log($"OpenLift - Started Coroutine at timestamp : {Time.time}.");       
 
         //yield on a new YieldInstruction that waits for 3 seconds.
-        yield return new WaitForSeconds(3);
-
+        if (isOpening==false){
+             isOpening = true;
+             yield return new WaitForSeconds(3);
             _liftAdmin.SetBool ("isOpening",true);
             _liftAdmin.SetBool ("IsLoading",false);
             _liftAdmin.SetBool ("isLiftClosing",false);
-
+            yield return new WaitForSeconds(3);
+            isOpening = false;
+        }
         //After we have waited 5 seconds print the time again.
-       if (isDebug)  Debug.Log("OpenLift - Finished Coroutine at timestamp : " + Time.time);             
+       if (isDebug)  Debug.Log("OpenLift - Finished Coroutine at timestamp : " + Time.time);           
         
     }
 

@@ -8,6 +8,7 @@ public class Lift : MonoBehaviour
     Animator _liftAdmin;
     Animator _doorAdmin;
     public GameObject LiftAutomationGroup;
+    public AnimateDoor animateDoor;
     public GameObject Door;
 
     private void OnTriggerEnter(Collider other) {

@@ -4901,6 +4901,7 @@ GameObject:
   - component: {fileID: 246386456689007193}
   - component: {fileID: 7048722266750043595}
   - component: {fileID: 1697330500976773411}
+  - component: {fileID: 7124263241290480493}
   m_Layer: 0
   m_Name: LiftTrigger
   m_TagString: Lift
@@ -4916,8 +4917,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3539060172621386586}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.0337, y: -0.0407, z: 0.015}
-  m_LocalScale: {x: 0.016153438, y: 0.062415674, z: 0.06573082}
+  m_LocalPosition: {x: 0.034, y: -0.023, z: 0.015}
+  m_LocalScale: {x: 0.07345776, y: 0.062415674, z: 0.06573082}
   m_Children: []
   m_Father: {fileID: 7832160939546199879}
   m_RootOrder: 0
@@ -4984,6 +4985,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9864014, y: 0.62351847, z: 1}
   m_Center: {x: 0.49320182, y: -0.18824123, z: 0}
+--- !u!114 &7124263241290480493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539060172621386586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55230e9cc39ce44db9bbf8d434bed84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LiftAutomationGroup: {fileID: 8801618132633736663}
+  animateDoor: {fileID: 368683885775985306}
+  Door: {fileID: 7405844667609170913}
 --- !u!1 &3630579994526313505
 GameObject:
   m_ObjectHideFlags: 0
@@ -6268,8 +6284,8 @@ GameObject:
   - component: {fileID: 3774056218954246382}
   - component: {fileID: 274719267546474315}
   - component: {fileID: 2606186696529728385}
-  - component: {fileID: 5290556221337512126}
   - component: {fileID: 3996054331586769676}
+  - component: {fileID: 7424682459102179594}
   m_Layer: 0
   m_Name: AccessBus
   m_TagString: Untagged
@@ -6347,19 +6363,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5290556221337512126
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552000740179014228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.915291, y: 3.162449, z: 3.2006724}
-  m_Center: {x: 4.5269566, y: 1.9834833, z: 2.4818072}
 --- !u!114 &3996054331586769676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6383,6 +6386,20 @@ MonoBehaviour:
   maxSteeringAngle: 30
   motorForce: 1000
   brakeForce: 3000
+--- !u!64 &7424682459102179594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552000740179014228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3413957613794295172, guid: ca82eac560f201a43b89ab4f7bdac9ad, type: 3}
 --- !u!1 &4728609645471962102
 GameObject:
   m_ObjectHideFlags: 0
@@ -8876,8 +8893,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6505952954666872706}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.689, y: 0.32, z: 3.275}
-  m_LocalScale: {x: 2.0469613, y: 2.6265163, z: 1.4110776}
+  m_LocalPosition: {x: 0.69, y: 0.7, z: 3.01}
+  m_LocalScale: {x: 2.3284185, y: 2.6265163, z: 1.4110776}
   m_Children: []
   m_Father: {fileID: 1841199957967982325}
   m_RootOrder: 0
@@ -8957,6 +8974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LiftAutomationGroup: {fileID: 8801618132633736663}
+  isDebug: 0
 --- !u!1 &6508852370908429514
 GameObject:
   m_ObjectHideFlags: 0
