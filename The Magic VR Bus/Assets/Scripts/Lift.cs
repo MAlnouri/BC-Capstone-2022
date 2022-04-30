@@ -25,7 +25,7 @@ public class Lift : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        
+        Debug.Log("Outside Lift Trigger");
 
     }
         
