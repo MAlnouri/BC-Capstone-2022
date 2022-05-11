@@ -26,7 +26,7 @@ public class CarMovementInParkingLot : MonoBehaviour
         _rb.velocity = new Vector3(forwardSpeed , 0, 0);
 
         // Return to the original position so the car keeps looping
-        if(transform.position.x > 26)
+        if(transform.position.x > 36)
         {
             transform.position = originalPosition;
         }

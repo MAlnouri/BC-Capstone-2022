@@ -24,6 +24,8 @@ public class AnimateDoor : MonoBehaviour
     private string isOpen;    
     private bool isOpening = false;
     private bool isClosing = false;       
+    public AudioSource soundFX;
+    
     #endregion  
     // private void OnTriggerStay(Collider other) {
     //     Debug.Log ("======>  Tracking how busy this is");
@@ -48,11 +50,12 @@ public class AnimateDoor : MonoBehaviour
         if (isDebug) Debug.Log ($"OnTrigger Door Testing. Enter object tag ---{other.tag} | Accessing {other.name}. | collided with {other.gameObject.name}. ");        
         if (other.tag==("Player")){
             _atliftRamp = true;
+            if (soundFX) soundFX.Play();
             _doorAdmin.SetBool ("isOpening", true);
             StartCoroutine (OpenLift ());
             if (isDebug) Debug.Log("OnTrigger Door Opening");
         }   
-          Validation ("OnTriggerEnter"); 
+        if (isDebug)  Validation ("OnTriggerEnter"); 
     }
     
      private void OnTriggerExit(Collider other) {
@@ -60,15 +63,15 @@ public class AnimateDoor : MonoBehaviour
          if (other.tag==("Player") && _atliftRamp){
             //_liftAdmin.SetBool ("isLiftClosing",true);
             if (isOpening==false) StartCoroutine (CloseDoor ());
-            Debug.Log("OnTrigger Door CLosing");
+            if (isDebug) Debug.Log("OnTrigger Door CLosing");
             _atliftRamp = false;
          }
-        Validation ("OnTriggerExit");  
+        if (isDebug) Validation ("OnTriggerExit");  
          if (_liftAdmin.GetBool("isLiftClosing")==false) 
-         {Debug.Log("====++++>>>>Exit - It is false"); 
+         {if (isDebug) Debug.Log("====++++>>>>Exit - It is false"); 
          }
          else  {
-             Debug.Log("====++++>>>>Exit - It is true");            
+             if (isDebug)  Debug.Log("====++++>>>>Exit - It is true");            
          
          }
         //  if (other.tag=="Lift" && _liftAdmin.GetBool("isLiftClosing")==false) {
@@ -91,9 +94,10 @@ public class AnimateDoor : MonoBehaviour
         if (isDebug) Debug.Log($"CloseDoor - Started Coroutine at timestamp : {Time.time}.");
 
         //yield on a new YieldInstruction that waits for 3 seconds.
+        if (soundFX) soundFX.Play();
         _liftAdmin.SetBool("isOpening", false);
         _liftAdmin.SetBool("IsLoading", false);
-        yield return new WaitForSeconds(3);
+        //yield return new WaitForSeconds(3);
 
         _liftAdmin.SetBool("isLiftClosing", true);
         yield return new WaitForSeconds(3);
@@ -119,10 +123,17 @@ public class AnimateDoor : MonoBehaviour
         if (isOpening==false){
              isOpening = true;
              yield return new WaitForSeconds(3);
-            _liftAdmin.SetBool ("isOpening",true);
-            _liftAdmin.SetBool ("IsLoading",false);
-            _liftAdmin.SetBool ("isLiftClosing",false);
-            yield return new WaitForSeconds(3);
+             _liftAdmin.Play("LiftRampOpening");
+            //_liftAdmin.SetBool ("isOpening",true);
+            //_liftAdmin.SetBool ("IsLoading",false);
+            //_liftAdmin.SetBool ("isLiftClosing",false);
+            
+            StartCoroutine (waitForAnimation());
+
+            //Debug.Log ($"OpenLift - Here is the outout => {anim.length + anim.normalizedTime} for Layer {_liftAdmin.GetLayerIndex("Lift Layer")}.");
+            yield return new WaitForSeconds(4);
+            Debug.Log ("Done with this");
+            if (soundFX) soundFX.Stop();
             isOpening = false;
         }
         //After we have waited 5 seconds print the time again.
@@ -130,6 +141,22 @@ public class AnimateDoor : MonoBehaviour
         
     }
 
+    bool isPlaying(Animator anim, string stateName)
+{
+    if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+            anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        return true;
+    else
+        return false;
+}
+
+    private IEnumerator waitForAnimation()
+    {
+        while (isPlaying(_liftAdmin,"LiftRampOpening"))
+            yield return null;
+
+        Debug.Log ("Animation is done!");
+    }
 
      // Update is called once per frame
     void Update()
