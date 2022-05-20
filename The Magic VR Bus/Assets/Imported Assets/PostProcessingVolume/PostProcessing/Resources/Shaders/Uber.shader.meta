@@ -1,9 +1,20 @@
 fileFormatVersion: 2
 guid: 8ce0a6f4c8cae334d8a5617f302b6769
-timeCreated: 1459956426
-licenseType: Store
 ShaderImporter:
-  defaultTextures: []
+  externalObjects: {}
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _AutoExposure: {instanceID: 0}
+  - _BloomTex: {instanceID: 0}
+  - _Bloom_DirtTex: {instanceID: 0}
+  - _GrainTex: {instanceID: 0}
+  - _LogLut: {instanceID: 0}
+  - _UserLut: {instanceID: 0}
+  - _Vignette_Mask: {instanceID: 0}
+  - _ChromaticAberration_Spectrum: {instanceID: 0}
+  - _DitheringTex: {instanceID: 0}
+  nonModifiableTextures: []
+  preprocessorOverride: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
