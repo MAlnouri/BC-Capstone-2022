@@ -39,4 +39,14 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
+    // Use trigger transition for player entering bus
+    /*
+    // Triggers new scene on entering area
+    void OnTriggerEnter(Collider other)
+    {
+        // Loads scene based on index in build settings
+        SceneManager.LoadScene(2);
+    }
+    */
+
 }
