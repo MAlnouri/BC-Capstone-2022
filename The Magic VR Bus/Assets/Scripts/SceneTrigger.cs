@@ -9,7 +9,7 @@ public class SceneTrigger : MonoBehaviour
     // Triggers new scene on entering area
     void OnTriggerEnter(Collider other)
     {
-        // Loads scene based on number in build settings
+        // Loads scene based on index in build settings
         SceneManager.LoadScene(2);
     }
 
