@@ -3940,7 +3940,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 2
+  m_Text: 'Library
 
 '
 --- !u!222 &236815569
@@ -51009,7 +51009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &937855106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57607,6 +57607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlOneHighScoreText: {fileID: 1730303315324509667}
   lvlTwoHighScoreText: {fileID: 2127716047}
+  lvlTwoPlayButton: {fileID: 1479453773}
 --- !u!1001 &1234066799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65109,13 +65110,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1233538198}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1233538205}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: CheckLevelTwoPrerequisite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -72752,7 +72753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1670761256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88867,7 +88868,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 40, y: -0.34635162}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: -357.1498, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127716049
 MonoBehaviour:
@@ -92205,7 +92206,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 40, y: -0.34635162}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: -357.1498, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1730303315324509667
 GameObject:
@@ -92646,7 +92647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1
+  m_Text: Forest Maze
 --- !u!224 &1730303316834982615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92663,7 +92664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -45}
+  m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 304.24, y: 171.3641}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1737158196756735434
