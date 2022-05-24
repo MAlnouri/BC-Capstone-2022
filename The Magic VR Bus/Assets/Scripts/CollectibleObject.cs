@@ -25,8 +25,7 @@ public class CollectibleObject : MonoBehaviour
         } 
         else 
         {
-            ScoreController.playerScore += objectScoreValue;
-            Destroy(gameObject);
+            CollectObject();
         }
     }
 }
