@@ -15,6 +15,6 @@ public class Spin : MonoBehaviour
     {
         // Transforms object by 3 vectors (x,y,z) in relation to the object
         // Rotates based on frames
-        transform.Rotate(0f, 10f * Time.deltaTime, 0f, Space.Self);
+        transform.Rotate(0f, 100f * Time.deltaTime, 0f, Space.Self);
     }
 }
