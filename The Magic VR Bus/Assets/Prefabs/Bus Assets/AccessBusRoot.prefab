@@ -9066,7 +9066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LiftAutomationGroup: {fileID: 8801618132633736663}
   isDebug: 0
-  soundFX: {fileID: 0}
+  soundFX: {fileID: 5221947320457434224}
 --- !u!1 &6508852370908429514
 GameObject:
   m_ObjectHideFlags: 0
@@ -13190,6 +13190,12 @@ PrefabInstance:
 --- !u!4 &5221947320457434225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5453353434522170104, guid: 0e75903898cf1464aae552f81d2daa86,
+    type: 3}
+  m_PrefabInstance: {fileID: 276445147035772553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5221947320457434224 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5453353434522170105, guid: 0e75903898cf1464aae552f81d2daa86,
     type: 3}
   m_PrefabInstance: {fileID: 276445147035772553}
   m_PrefabAsset: {fileID: 0}
