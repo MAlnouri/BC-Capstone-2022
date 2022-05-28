@@ -53,7 +53,7 @@ public class WristMenuController : MonoBehaviour
 
     public void LoadScene1()
     {
-        SceneManager.LoadScene("Level 1 Scene");
+        SceneManager.LoadScene("Level 1 Redesign");
     }
 
     public void LoadScene2()
