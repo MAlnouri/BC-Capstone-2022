@@ -6,9 +6,17 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
+    // High scores
     public GameObject lvlOneHighScoreText;
     public GameObject lvlTwoHighScoreText;
+
+    // Buttons
     public GameObject lvlTwoPlayButton;
+
+    // Audio settings
+    public AudioSource audioSourceIntro;
+    public float volume = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,5 +63,18 @@ public class MainMenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void PlayIntroAudio()
+    {
+        if (audioSourceIntro.isPlaying)
+        {
+            audioSourceIntro.Stop();
+            PlayIntroAudio();
+        }
+        else
+        {
+            audioSourceIntro.PlayOneShot(audioSourceIntro.clip, volume);
+        }
     }
 }
