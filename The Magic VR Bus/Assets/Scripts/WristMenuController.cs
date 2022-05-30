@@ -7,12 +7,25 @@ using UnityEngine.SceneManagement;
 public class WristMenuController : MonoBehaviour
 {
     public GameObject wristUI;
+    List<GameObject> uiLayers = new List<GameObject>();
     public bool isUIActive = true;
-
+    private bool blockAction = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != "Main Menu") 
+        {
+            blockAction = true;
+        }
+        else
+        {
+            foreach (Transform tran in wristUI.transform)
+            {
+                uiLayers.Add(tran.gameObject);
+            }
+        }
         DisplayWristUI();
     }
 
@@ -24,19 +37,25 @@ public class WristMenuController : MonoBehaviour
 
     public void MenuPressed(InputAction.CallbackContext context)
     {
-        if(context.performed) DisplayWristUI();
+        if(context.performed && blockAction != true) DisplayWristUI();
     }
 
     public void DisplayWristUI()
     {
         if(isUIActive)
         {
-            wristUI.SetActive(false);
+            foreach (GameObject layer in uiLayers)
+            {
+                if (layer.activeSelf == true) layer.SetActive(false);
+            }
             isUIActive = false;
         }
         else
         {
-            wristUI.SetActive(true);
+            foreach (GameObject layer in uiLayers)
+            {
+                if (layer.name == "Top Level") layer.SetActive(true);
+            }
             isUIActive = true;
         }
     }
