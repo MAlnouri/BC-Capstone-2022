@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.27450982, g: 0.5019608, b: 0.627451, a: 0.5019608}
   m_FogMode: 3
   m_FogDensity: 0.025
@@ -11801,7 +11801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494390023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23, y: 5.6, z: -12.375}
+  m_LocalPosition: {x: -23, y: 5.25, z: -12.375}
   m_LocalScale: {x: 0.3, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1080209358}
@@ -11816,7 +11816,7 @@ BoxCollider:
   m_GameObject: {fileID: 494390023}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -11839,7 +11839,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee48bc1c8c5c52c43bb38b29a3447f3f, type: 2}
+  - {fileID: 2100000, guid: 1163c2bc25d355141a5758ce45b8c569, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21369,17 +21369,17 @@ PrefabInstance:
     - target: {fileID: 4155401185353138595, guid: d991544bcdc2c1a4296ae96d3bc449df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 4155401185353138595, guid: d991544bcdc2c1a4296ae96d3bc449df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 4155401185353138595, guid: d991544bcdc2c1a4296ae96d3bc449df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23
+      value: 25.875
       objectReference: {fileID: 0}
     - target: {fileID: 4155401185353138595, guid: d991544bcdc2c1a4296ae96d3bc449df,
         type: 3}
@@ -25888,12 +25888,12 @@ PrefabInstance:
     - target: {fileID: 6646145527215207048, guid: a6a01b66030382c4bab730618b3cb7f1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7015200503788307090, guid: a6a01b66030382c4bab730618b3cb7f1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7800632929820099398, guid: a6a01b66030382c4bab730618b3cb7f1,
         type: 3}
@@ -36897,7 +36897,7 @@ BoxCollider:
   m_GameObject: {fileID: 1786224827}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
