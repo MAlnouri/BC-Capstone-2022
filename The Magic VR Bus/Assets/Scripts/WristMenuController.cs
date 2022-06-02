@@ -15,7 +15,7 @@ public class WristMenuController : MonoBehaviour
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != "Main Menu") 
+        if (scene.name == "Main Menu") 
         {
             blockAction = true;
         }
