@@ -8,14 +8,7 @@ public class SceneTransitionManager : MonoBehaviour
 {
     // Calls fade screen script to handle transition animation
     public FadeScreen fadeScreen;
-
-    /*
-    public void GoToScene()
-    {
-        // Starts coroutine to play animation
-        // Uses next scene index as parameter to load new scene
-        StartCoroutine(GoToSceneRoutine());
-    }*/
+    public GameObject fadeScreenObject;
 
     void OnTriggerEnter(Collider other)
     {
@@ -23,8 +16,17 @@ public class SceneTransitionManager : MonoBehaviour
         StartCoroutine(GoToSceneRoutine());
     }
 
+    // Set the fader screen object to active in the game
+    // Having the screen inactive on start avoids issues with camera stuttering
+    public void show()
+    {
+        fadeScreenObject.SetActive(true);
+    }
+
     IEnumerator GoToSceneRoutine()
     {
+        show();
+        /*
         // Fades the screen on loading new scene
         fadeScreen.FadeOut();
 
@@ -35,7 +37,8 @@ public class SceneTransitionManager : MonoBehaviour
         // Launches new scene
         //SceneManager.LoadScene(sceneIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+        */
+        yield return null;
 
     }
 
