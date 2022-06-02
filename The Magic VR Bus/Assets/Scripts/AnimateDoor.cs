@@ -105,8 +105,9 @@ public class AnimateDoor : MonoBehaviour
             isOpen = "false";
             //_liftAdmin.SetBool ("isLiftClosing",true);
         }
-        if (isDebug) Debug.Log($"CloseDoor - Finished Coroutine at timestamp : {Time.time} and ramp closing is {isOpen}");
-        
+        yield return new WaitForSeconds(3);
+        if (isDebug) Debug.Log($"CloseDoor - Finished Coroutine at timestamp : {Time.time} and ramp closing is {isOpen}");       
+
         if (soundFX) soundFX.Stop();
 
     }

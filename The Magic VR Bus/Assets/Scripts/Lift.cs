@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Lift : MonoBehaviour
 {
- 
+    
+        private string[] isCheckedValue ={
+        "isOpening",
+        "isLiftClosing",
+        "IsLoading"
+    };
     Animator _liftAdmin;
     Animator _doorAdmin;
     public GameObject LiftAutomationGroup;
@@ -27,27 +32,29 @@ public class Lift : MonoBehaviour
         
     }
 
-    // private void Validation (string Loop=null){  
+    private void Validation (string Loop=null){  
         
-    //     for (int i = 0; i < isCheckedValue.Length; i++)
-    //     {            
-    //         if (_liftAdmin.GetBool (isCheckedValue[i])){
-    //         Loop = Loop + $"===> Bool {isCheckedValue[i]} is True |";
-    //         } else {
-    //             Loop = Loop + $"===> Bool {isCheckedValue[i]} is False |";
-    //         }
-    //     }        
-    //     Debug.Log ($"===> Final  {Loop}");        
-    // }
+        for (int i = 0; i < isCheckedValue.Length; i++)
+        {            
+            if (_liftAdmin.GetBool (isCheckedValue[i])){
+            Loop = Loop + $"===> Bool {isCheckedValue[i]} is True |";
+            } else {
+                Loop = Loop + $"===> Bool {isCheckedValue[i]} is False |";
+            }
+        }        
+        Debug.Log ($"===> Final  {Loop}");        
+    }
 
     private void OnTriggerEnter(Collider other) {
 
-         Debug.Log ($"Lift - OnTrigger Door Testing. Enter object tag ---{other.tag} | Accessing {other.name}");
+         Debug.Log ($"Lift - OnTrigger Door Testing. Enter object tag ---{other.tag} | Accessing {other.name} | collided with {other.gameObject.name}. ");
+         Validation("Lift OnTrigger");
          if (other.tag==("Player")){
+             //if (_liftAdmin.GetBool("IsLoading") == true) {StartCoroutine (OpenLift ()); 
+             StartCoroutine (OpenLift ());
+             
 
-            StartCoroutine (OpenLift ());
             Debug.Log("OnTrigger Lift rising");
-
         }   
         
     }
