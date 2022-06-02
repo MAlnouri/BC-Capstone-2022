@@ -10,14 +10,42 @@ public class Lift : MonoBehaviour
     public GameObject LiftAutomationGroup;
     public AnimateDoor animateDoor;
     public GameObject Door;
+    public AudioSource soundFX;
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _liftAdmin = LiftAutomationGroup.GetComponent<Animator>(); 
+        _doorAdmin = Door.GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // private void Validation (string Loop=null){  
+        
+    //     for (int i = 0; i < isCheckedValue.Length; i++)
+    //     {            
+    //         if (_liftAdmin.GetBool (isCheckedValue[i])){
+    //         Loop = Loop + $"===> Bool {isCheckedValue[i]} is True |";
+    //         } else {
+    //             Loop = Loop + $"===> Bool {isCheckedValue[i]} is False |";
+    //         }
+    //     }        
+    //     Debug.Log ($"===> Final  {Loop}");        
+    // }
 
     private void OnTriggerEnter(Collider other) {
 
+         Debug.Log ($"Lift - OnTrigger Door Testing. Enter object tag ---{other.tag} | Accessing {other.name}");
          if (other.tag==("Player")){
-            //_atliftRamp = true;
-            //_doorAdmin.SetBool ("isOpening", true);
-            _liftAdmin.SetBool ("IsLoading",true);
-                //StartCoroutine (OpenLift ());
+
+            StartCoroutine (OpenLift ());
             Debug.Log("OnTrigger Lift rising");
 
         }   
@@ -32,18 +60,13 @@ public class Lift : MonoBehaviour
 
     }
         
-    
+    IEnumerator OpenLift(){
+        //_atliftRamp = true;        
+        //_liftAdmin.Play("LiftRampLeave"); 
+        _liftAdmin.SetBool ("IsLoading",true);
+        if (soundFX) soundFX.Play();
+        yield return new WaitForSeconds(3);
+        if(soundFX) soundFX.Stop();
+    }
  
-    // Start is called before the first frame update
-    void Start()
-    {
-        _liftAdmin = LiftAutomationGroup.GetComponent<Animator>(); 
-        _doorAdmin = Door.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

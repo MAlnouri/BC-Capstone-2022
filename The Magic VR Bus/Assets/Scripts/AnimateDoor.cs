@@ -27,11 +27,15 @@ public class AnimateDoor : MonoBehaviour
     public AudioSource soundFX;
     
     #endregion  
-    // private void OnTriggerStay(Collider other) {
-    //     Debug.Log ("======>  Tracking how busy this is");
-    // }
-    
-    
+    void Start()
+    {
+      _doorAdmin = this.transform.parent.GetComponent<Animator>();
+      _liftAdmin = LiftAutomationGroup.GetComponent<Animator>();      
+       if (isDebug) Debug.Log(" Just starting");
+      target = GameObject.FindWithTag("Player").transform; 
+      Validation ("Start");  
+    }
+
     private void Validation (string Loop=null){  
         
         for (int i = 0; i < isCheckedValue.Length; i++)
@@ -74,19 +78,7 @@ public class AnimateDoor : MonoBehaviour
              if (isDebug)  Debug.Log("====++++>>>>Exit - It is true");            
          
          }
-        //  if (other.tag=="Lift" && _liftAdmin.GetBool("isLiftClosing")==false) {
-        //      Debug.Log("====++++>>>>OnTriggerExit - setting lift to true");
-        //      _liftAdmin.SetBool ("isLiftClosing",true);
-        //  }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-      _doorAdmin = this.transform.parent.GetComponent<Animator>();
-      _liftAdmin = LiftAutomationGroup.GetComponent<Animator>();      
-       if (isDebug) Debug.Log(" Just starting");
-      target = GameObject.FindWithTag("Player").transform; 
-      Validation ("Start");  
+
     }
 
     IEnumerator CloseDoor()
@@ -114,6 +106,8 @@ public class AnimateDoor : MonoBehaviour
             //_liftAdmin.SetBool ("isLiftClosing",true);
         }
         if (isDebug) Debug.Log($"CloseDoor - Finished Coroutine at timestamp : {Time.time} and ramp closing is {isOpen}");
+        
+        if (soundFX) soundFX.Stop();
 
     }
     IEnumerator OpenLift (){
@@ -123,13 +117,8 @@ public class AnimateDoor : MonoBehaviour
         if (isOpening==false){
              isOpening = true;
              yield return new WaitForSeconds(3);
-             _liftAdmin.Play("LiftRampOpening");
-            //_liftAdmin.SetBool ("isOpening",true);
-            //_liftAdmin.SetBool ("IsLoading",false);
-            //_liftAdmin.SetBool ("isLiftClosing",false);
-            
+             _liftAdmin.Play("LiftRampOpening");            
             StartCoroutine (waitForAnimation());
-
             //Debug.Log ($"OpenLift - Here is the outout => {anim.length + anim.normalizedTime} for Layer {_liftAdmin.GetLayerIndex("Lift Layer")}.");
             yield return new WaitForSeconds(4);
             Debug.Log ("Done with this");
