@@ -10,7 +10,7 @@ public class SceneTransitionManager : MonoBehaviour
     public FadeScreen fadeScreen;
     public GameObject fadeScreenObject;
     // Calls scorecontroller to save score on level transition
-    public ScoreController scoring;
+    public GameObject scoring;
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,7 +30,7 @@ public class SceneTransitionManager : MonoBehaviour
         // Reveals the fader screen
         show();
         // Saves current score
-        scoring.LevelOneSaveHighScore();
+        scoring.GetComponent<ScoreController>().LevelOneSaveHighScore();
         yield return new WaitForSeconds(2);
         // Fades the screen on loading new scene
         fadeScreen.FadeOut();
