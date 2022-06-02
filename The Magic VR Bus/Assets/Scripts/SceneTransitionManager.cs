@@ -25,8 +25,9 @@ public class SceneTransitionManager : MonoBehaviour
 
     IEnumerator GoToSceneRoutine()
     {
+        // Reveals the fader screen
         show();
-        /*
+        yield return new WaitForSeconds(2);
         // Fades the screen on loading new scene
         fadeScreen.FadeOut();
 
@@ -37,8 +38,6 @@ public class SceneTransitionManager : MonoBehaviour
         // Launches new scene
         //SceneManager.LoadScene(sceneIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        */
-        yield return null;
 
     }
 

@@ -14,7 +14,11 @@ public class FadeScreen : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         // Starts scene with fade in
-        if (fadeOnStart) FadeIn();
+        if (fadeOnStart)
+        {
+            fadeDuration = 0;
+            FadeIn();
+        }
     }
 
     public void FadeIn()
@@ -36,6 +40,7 @@ public class FadeScreen : MonoBehaviour
 
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
+        fadeDuration = 2;
         float timer = 0;
         // Loops until timer reaches fade duration 2 seconds
         while (timer <= fadeDuration)
